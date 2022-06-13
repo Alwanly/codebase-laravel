@@ -35,7 +35,7 @@
             "dont-discover": []
         },
         "hooks": {
-            "pre-push": [
+            "pre-commit": [
                 "echo Testing Source code",
                 "php artisan test"
             ]
