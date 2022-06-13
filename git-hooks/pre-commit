@@ -41,10 +41,10 @@ if ! $PASS; then
 else
   echo "\033[42mCOMMIT SUCCEEDED\033[0m\n"
 # Run tests for staged files only
-if ! php artisan test; then
-  echo "You have errors in your unit test"
-  exit -1
-fi
+    if ! php artisan test; then
+    echo "You have errors in your unit test"
+    exit -1
+    fi
 fi
 
 
