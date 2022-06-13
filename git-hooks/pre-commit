@@ -1,9 +1,10 @@
 #!/bin/sh
 
+# Run linter for staged files only
 TEST=php artisan test
 
 # Run tests for staged files only
 if ! $TEST; then
   echo "You have errors in your unit test"
-  exit 0
+  exit -1
 fi
