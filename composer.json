@@ -33,6 +33,12 @@
     "extra": {
         "laravel": {
             "dont-discover": []
+        },
+        "hooks": {
+            "pre-push": [
+                "echo Testing Source code",
+                "php artisan test"
+            ]
         }
     },
     "autoload": {
