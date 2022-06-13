@@ -1,13 +1,5 @@
 #!/bin/sh
 
-
-TEST=php artisan test
-
-# Run tests for staged files only
-if ! $TEST; then
-  echo "You have errors in your unit test"
-fi
-
 STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep ".php\{0,1\}$")
 
 if [[ "$STAGED_FILES" = "" ]]; then
@@ -46,6 +38,10 @@ if ! $PASS; then
   exit 1
 else
   echo "\033[42mCOMMIT SUCCEEDED\033[0m\n"
+  if ! php artisan test; then
+      echo "You have errors in your unit test"
+    fi
+
 fi
 
 exit $?
